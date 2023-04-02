@@ -22,9 +22,11 @@ class sessionManager extends model
     public function isLogged()
     {
         if (isset($_SESSION['email']) && isset($_SESSION['password'])) {
-            $sorgu = $this->db->query("SELECT * FROM WHERE email = ? AND password = ?");
-            $sorgu->execute(array($_SESSION['email'], $_SESSION['password']));
-            if ($sorgu->rowCount() != 0) {
+            $email = $_SESSION['email'];
+            $password = $_SESSION['password'];
+            $query = $this->db->prepare("SELECT * FROM uyeler WHERE email = ? AND password = ?");
+            $query->execute(array($email, $password));
+            if ($query->rowCount() != 0) {
                 return true;
             } else {
                 return false;
