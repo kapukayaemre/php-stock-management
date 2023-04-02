@@ -3,7 +3,7 @@ define('CONTROLLERS_PATH', 'app/controllers');
 define('VIEWS_PATH', 'app/views');
 define('MODELS_PATH', 'app/models');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'test');
+define('DB_NAME', 'stock-management');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('SITE_URL', 'http://stock-management.local');
