@@ -27,7 +27,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="<?= SITE_URL; ?>/category/create"><i class="fa fa-circle-o"></i> Kategori Ekle </a></li>
-                    <li><a href="<?= SITE_URL; ?>/category/list"><i class="fa fa-circle-o"></i> Kategori Listesi </a></li>
+                    <li><a href="<?= SITE_URL; ?>/category/"><i class="fa fa-circle-o"></i> Kategori Listesi </a></li>
                 </ul>
             </li>
 
