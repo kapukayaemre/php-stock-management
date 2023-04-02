@@ -2,14 +2,22 @@
 class controller
 {
     public $sessionManager;
+    public $myUserInfo;
     public function __construct()
     {
         $this->sessionManager = new sessionManager();
+        $this->myUserInfo = $this->sessionManager->getUserInfo();
     }
 
-    public function render($file, $param = [])
+    public function render($file, $params = [])
     {
-        return view::render($file, $param);
+        if (file_exists(VIEWS_PATH . '/' . $file . '.php'))
+        {
+            require_once VIEWS_PATH . '/' . $file . '.php';
+        } else
+        {
+            exit($file . 'Görüntü Dosyası Bulunumadı');
+        }
     }
 
     public function model($file)

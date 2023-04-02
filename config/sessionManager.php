@@ -26,6 +26,7 @@ class sessionManager extends model
             $password = $_SESSION['password'];
             $query = $this->db->prepare("SELECT * FROM uyeler WHERE email = ? AND password = ?");
             $query->execute(array($email, $password));
+
             if ($query->rowCount() != 0) {
                 return true;
             } else {
@@ -39,9 +40,11 @@ class sessionManager extends model
     public function getUserInfo()
     {
         if ($this->isLogged()) {
-            $sorgu = $this->db->query("SELECT * FROM uyeler WHERE email = ? AND password = ? ");
-            $sorgu->execute(array($_SESSION['email'], $_SESSION['password']));
-            return $sorgu->fetch(PDO::FETCH_ASSOC);
+            $email = $_SESSION['email'];
+            $password = $_SESSION['password'];
+            $query = $this->db->prepare("SELECT * FROM uyeler WHERE email = ? AND password = ?");
+            $query->execute(array($email, $password));
+            return $query->fetch(PDO::FETCH_ASSOC);
         } else {
             return false;
         }
