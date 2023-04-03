@@ -5,9 +5,7 @@
         <div class="row">
             <!-- left column -->
             <div class="col-md-12">
-                <?php if(isset($_SESSION['statu'])) {
-                    echo $_SESSION['statu'];
-                } ?>
+                <?php helper::flashDataView('statu'); ?>
                 <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title"><strong style="color: darkblue"><?= $params['data']['ad'] ?></strong> Kategorisi Düzenleniyor...  </h3>
