@@ -74,10 +74,48 @@ class musteriler extends controller {
     }
 
     public function update($id){
+        if(!$this->sessionManager->isLogged()){
+            helper::redirect(SITE_URL);
+            die();
+        }
+        if($_POST){
+            $ad = helper::cleaner($_POST['ad']);
+            $soyad = helper::cleaner($_POST['soyad']);
+            $sirket = helper::cleaner($_POST['sirket']);
+            $email = helper::cleaner($_POST['email']);
+            $telefon = helper::cleaner($_POST['telefon']);
+            $adres = helper::cleaner($_POST['adres']);
+            $tc = helper::cleaner($_POST['tc']);
+            $notu = helper::cleaner($_POST['notu']);
+
+            if($ad != '' && $soyad != '') {
+                $update = $this->model('musterilerModel')->update($id,$ad,$soyad,$sirket,$email,$telefon,$adres,$tc,$notu);
+                if ($update) {
+                    helper::flashData('statu','Müşteri Güncelleme Başarılı');
+                    helper::redirect(SITE_URL.'/musteriler/');
+                } else {
+                    helper::flashData('statu','Müşteri Eklenemedi!!');
+                    helper::redirect(SITE_URL.'/musteriler/edit/'. $id);
+                }
+            } else {
+                helper::flashData('statu','Lütfen Boş Alan Bırakmayın');
+                helper::redirect(SITE_URL.'/musteriler/edit/'. $id);
+            }
+
+        } else {
+            exit('Erişim Hakkınız Yok');
+        }
 
     }
 
     public function delete($id){
+        if(!$this->sessionManager->isLogged()){
+            helper::redirect(SITE_URL);
+            die();
+        }
+
+        $this->model('musterilerModel')->delete($id);
+        helper::redirect(SITE_URL. '/musteriler');
 
     }
 
