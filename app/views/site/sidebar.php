@@ -31,6 +31,20 @@
                 </ul>
             </li>
 
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>ÜRÜNLER</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?= SITE_URL; ?>/urunler/create"><i class="fa fa-circle-o"></i> Ürün Ekle </a></li>
+                    <li><a href="<?= SITE_URL; ?>/urunler/"><i class="fa fa-circle-o"></i> Ürün Listesi </a></li>
+                </ul>
+            </li>
+
             <li>
                 <a href="pages/calendar.html">
                     <i class="fa fa-calendar"></i> <span>Calendar</span>
