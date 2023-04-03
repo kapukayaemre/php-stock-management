@@ -19,10 +19,10 @@ class rapor extends controller {
             helper::redirect(SITE_URL);
             die();
         }
-
+        $data = $this->model('musterilerModel')->list();
         $this->render('site/header');
         $this->render('site/sidebar');
-        $this->render('rapor/musteri');
+        $this->render('rapor/musteri/index', ['data' => $data]);
         $this->render('site/footer');
     }
 
