@@ -16,14 +16,19 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Ad</th>
+                                        <th>Kategori</th>
                                         <th>Düzenle</th>
                                         <th>Kaldır</th>
                                     </tr>
                                     <?php if(count($params['data']) != 0): ?>
-                                        <?php foreach ($params['data'] as $key => $value): ?>
+                                        <?php foreach ($params['data'] as $key => $value):
+                                            /* İlgili Kategori Çekiliyor */
+                                            $categoryInfo = $this->model('categoryModel')->edit($value['kategori_id']);
+                                            ?>
                                             <tr>
                                                 <td><?= $value['id'];?></td>
                                                 <td><?= $value['ad']; ?></td>
+                                                <td><?= $categoryInfo['ad']; ?></td>
                                                 <td><a class="btn btn-warning btn-sm" href="<?= SITE_URL; ?>/urunler/edit/<?= $value['id']; ?>">Düzenle</a></td>
                                                 <td><a class="btn btn-danger btn-sm" href="<?= SITE_URL; ?>/urunler/delete/<?= $value['id']; ?>">Sil</a></td>
                                             </tr>
