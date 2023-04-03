@@ -73,6 +73,20 @@
                 </ul>
             </li>
 
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>RAPORLAR</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?= SITE_URL; ?>/rapor/urun"><i class="fa fa-circle-o"></i> Ürün Listesi </a></li>
+                    <li><a href="<?= SITE_URL; ?>/rapor/musteri"><i class="fa fa-circle-o"></i> Müşteri Listesi </a></li>
+                </ul>
+            </li>
+
             <li><a href="<?= SITE_URL; ?>/logout"><i class="fa fa-circle-o text-red"></i> <span>Çıkış</span></a></li>
 
         </ul>
